@@ -1,0 +1,11 @@
+[package]
+name = "lita-tokenizers-kytea-model-cli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+lita-tokenizers-kytea-model = { path = "../lita-tokenizers-kytea-model", features = ["fs"] }
+
+anyhow = "1.0"
+clap = { version = "4.6", features = ["derive"] }
+tokio = { workspace = true, features = ["macros", "rt-multi-thread", "signal"] }

@@ -1,0 +1,10 @@
+[workspace]
+members = ["./crates/*"]
+resolver = "3"
+
+[workspace.dependencies]
+async-compression = { version = "0.4", default-features = false }
+futures-core = { version = "0.3" }
+reqwest = { version = "0.13", default-features = false }
+tokio = { version = "1" }
+tokio-util = { version = "0.7" }

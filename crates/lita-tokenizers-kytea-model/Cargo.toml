@@ -1,0 +1,32 @@
+[package]
+name = "lita-tokenizers-kytea-model"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+default = ["default-tls", "system-proxy", "download"]
+
+default-tls = ["reqwest/default-tls"]
+rustls = ["reqwest/rustls"]
+rustls-no-provider = ["reqwest/rustls-no-provider"]
+native-tls = ["reqwest/native-tls"]
+native-tls-vendored = ["reqwest/native-tls-vendored"]
+native-tls-no-alpn = ["reqwest/native-tls-no-alpn"]
+native-tls-vendored-no-alpn = ["reqwest/native-tls-vendored-no-alpn"]
+
+system-proxy = ["reqwest/system-proxy"]
+
+download = ["dep:async-compression", "dep:bytes", "dep:futures-core", "dep:pin-project-lite", "dep:reqwest", "dep:tokio", "dep:tokio-util"]
+
+fs = ["tokio/fs", "download"]
+fs-temp = ["fs", "dep:tempfile"]
+
+[dependencies]
+async-compression = { workspace = true, optional = true, features = ["xz", "tokio"] }
+bytes = { version = "1.12", optional = true }
+futures-core = { workspace = true, optional = true }
+pin-project-lite = { version = "0.2", optional = true }
+reqwest = { workspace = true, optional = true, features = ["stream"] }
+tempfile = { version = "3.27", optional = true }
+tokio = { workspace = true, optional = true, features = ["io-util"] }
+tokio-util = { workspace = true, optional = true, features = ["io"] }
