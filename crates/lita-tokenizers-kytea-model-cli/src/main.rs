@@ -32,7 +32,7 @@ async fn download(url: Option<&str>, dst: Option<&Path>) -> Result<(), Error> {
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 struct Args {
-    /// URL of the KyTea model [default: xxx]
+    /// URL of the KyTea model [default: raw.githubusercontent.com URL for our repo]
     #[arg(short, long)]
     url: Option<String>,
 

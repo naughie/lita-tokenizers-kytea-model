@@ -15,7 +15,12 @@ use async_compression::tokio::bufread::XzDecoder;
 use std::pin::Pin;
 use std::task::{Context, Poll};
 
-const DEFAULT_URL: &str = "";
+const GITHUB_RAW: &str = "raw.githubusercontent.com";
+const REPO: &str = "naughie/lita-tokenizers-kytea-model";
+const BRANCH: &str = "main";
+const PATH: &str = "/models/default.bin.xz";
+
+const DEFAULT_URL: &str = const_format::formatcp!("https://{GITHUB_RAW}/{REPO}/{BRANCH}{PATH}");
 
 pub struct Downloader<Fut> {
     inner: Fut,

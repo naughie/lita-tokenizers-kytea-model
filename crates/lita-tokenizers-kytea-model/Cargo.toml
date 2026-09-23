@@ -16,7 +16,7 @@ native-tls-vendored-no-alpn = ["reqwest/native-tls-vendored-no-alpn"]
 
 system-proxy = ["reqwest/system-proxy"]
 
-download = ["dep:async-compression", "dep:bytes", "dep:futures-core", "dep:pin-project-lite", "dep:reqwest", "dep:tokio", "dep:tokio-util"]
+download = ["dep:async-compression", "dep:bytes", "dep:const_format", "dep:futures-core", "dep:pin-project-lite", "dep:reqwest", "dep:tokio", "dep:tokio-util"]
 
 fs = ["tokio/fs", "download"]
 fs-temp = ["fs", "dep:tempfile"]
@@ -24,6 +24,7 @@ fs-temp = ["fs", "dep:tempfile"]
 [dependencies]
 async-compression = { workspace = true, optional = true, features = ["xz", "tokio"] }
 bytes = { version = "1.12", optional = true }
+const_format = { version = "0.2", optional = true }
 futures-core = { workspace = true, optional = true }
 pin-project-lite = { version = "0.2", optional = true }
 reqwest = { workspace = true, optional = true, features = ["stream"] }
